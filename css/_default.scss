@@ -1,0 +1,378 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+ 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+ 
+/* HTML5 display-role reset for older browsers */
+ 
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+ 
+body {
+  line-height: 1; }
+ 
+ol, ul {
+  list-style: none; }
+ 
+blockquote, q {
+  quotes: none; }
+ 
+blockquote {
+  &:before, &:after {
+    content: '';
+    content: none; } }
+ 
+q {
+  &:before, &:after {
+    content: '';
+    content: none; } }
+
+a:link, a:visited, a:focus {
+  
+  text-decoration: none;
+}
+ 
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+  @font-face {
+    font-family: 'DroidSansRegular';
+    src: url('DroidSans-webfont.eot');
+    src: url('DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DroidSans-webfont.woff') format('woff'),
+         url('DroidSans-webfont.ttf') format('truetype'),
+         url('DroidSans-webfont.svg#DroidSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DroidSansBold';
+    src: url('DroidSans-Bold-webfont.eot');
+    src: url('DroidSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DroidSans-Bold-webfont.woff') format('woff'),
+         url('DroidSans-Bold-webfont.ttf') format('truetype'),
+         url('DroidSans-Bold-webfont.svg#DroidSansBold') format('svg');
+    font-weight: normal;
+
+    font-style: normal;
+}
+
+/*Default values */
+$font-stack:  'Myriad Pro','DroidSansRegular', 'Arial';
+
+$lightGrey:   #f2f2f2;
+$grey:      #ccc;
+$darkGrey:    #333;
+$green:     #53b352;
+$darkGreen:   #449143;
+$orange:    #ff7e2f;
+
+
+/*mixins */
+@mixin box-shadow-bottom($distance)
+{
+  -webkit-box-shadow: 0 5px 6px $distance #888 ;
+  -moz-box-shadow: 0 5px 6px $distance #888 ;
+  box-shadow: 0 5px 6px $distance #888 ;
+}
+
+
+body
+{
+  background-color: $lightGrey;
+  width: 100%;
+  height: 100%;
+  min-width: 360px;
+  color: $darkGrey;
+}
+
+.maincontainer
+{
+  width: 98%;
+  min-width: 0px;
+  max-width: 1366px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  
+} 
+
+p , h1, h2, h3, h4, h5, h6, ul, input, button, a{
+  font-family: $font-stack;
+}
+
+p{
+  line-height: 150%;
+}
+
+
+button , input[type="submit"]
+{
+  background-color: $orange;
+  border: none;
+  font-family: DroidSansBold;
+  color: white;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  z-index: 1 !important;
+}
+
+button:hover , input[type="submit"]:hover{
+      cursor: pointer;
+    }
+
+.popup{
+  z-index: 2;
+  width:60%;
+  padding:2.5%;
+  background-color: white;
+  position: fixed;
+  display: block;
+  top:0;
+  max-width: 600px;
+  min-width: 216px;
+  left: 0%;
+  top: 0%;
+
+  
+
+   input , button
+    {
+      width: 87%;
+      padding: 3%;
+
+      margin-bottom: 15px;
+    }
+
+    input:active, input:focus {
+      outline-color: $orange; 
+    }
+
+    button , input[type="submit"]
+    {
+    background-color: $orange;
+    border: none;
+    font-family: DroidSansBold;
+    font-size: 1em;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    color: white;
+    @include box-shadow-bottom(-3px);
+    position: relative;
+    top:0;
+    }
+
+    button:active , input[type="submit"]:active
+    {
+     @include box-shadow-bottom(-5px);
+     
+     top: -1px;
+    }
+
+    button:hover , input[type="submit"]:hover{
+      cursor: pointer;
+    }
+
+    button:active , input[type="submit"]:active, button:focus , input[type="submit"]:focus{
+     border: none;
+     outline: 0;
+    }
+
+    .popupLeft{
+      width: 50%;
+      float:left;
+    }
+
+    .popupRight{
+      width: 50%;
+      float:right;
+    }
+
+    input[type="submit"]{
+      float:right;
+      margin-top: 15px;
+      width: 47%;
+      padding:2%;
+      margin-right: 3%
+    }
+
+    h3{
+      font-size: 30px;
+      margin-bottom: 20px;
+     font-family: DroidSansBold;
+    }
+
+}
+
+.infoTile{
+  
+  width: 250px;
+  padding: 30px;
+  float:left;
+  background-color: white;
+  margin-right: 30px;
+  margin-bottom: 25px;
+  @include box-shadow-bottom(-4px);
+  border: 2px solid $grey;
+
+
+ 
+  h3
+  {
+
+    
+    font-weight: bold;
+    margin-bottom: 11px;
+    text-transform: uppercase;
+    font-family: DroidSansBold;
+    text-align:center;
+  }
+
+  p
+  {
+    font-size: 16px;
+    line-height: 150%;
+    font-family: $font-stack;
+
+  }
+
+  button{
+    clear:both;
+  }
+}
+
+.aboutList:last-of-type
+{
+  margin-right: 0;
+  float:right;
+}
+
+
+
+#blanket{
+  width:3840px;
+  height: 2160px;
+  background-color: rgba(75,75,75,.5);
+  position:fixed;
+  z-index: 1;
+  top:0;
+  left:0;
+}
+
+
+#header{
+  width: 100%;
+  background-color: $darkGreen;
+  padding: 15px 0px 0px 0px;
+  @include box-shadow-bottom(-4px);
+  position: fixed;
+  text-transform: uppercase;
+  z-index: 100000000000000000000000;
+  top: 0;
+}
+
+#headerTop{
+  width: 90%;
+  max-width: 1366px;
+  margin: auto auto;
+  overflow: hidden;
+
+
+  h1{
+    font-size: 36px;
+    float:left;
+    font-family: DroidSansBold;
+    color: white;
+    margin: 0 !important;
+  }
+
+  h4{
+    float:right;
+    font-family: $font-stack;
+    color: white;
+    font-size: 18px;
+    margin-top: 15px;
+  }
+}
+
+#headerBottom{
+  width: 90%;
+  margin: 15px auto;
+  margin-bottom: 0px;
+  background-color: $orange;
+  padding: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  #mainNavHolder{
+    width: 100%;
+    margin: auto;
+    max-width: 1366px;
+    position: relative;
+    left: -10px;
+  }
+
+  ul{
+    list-style: none;;
+    display:inline;
+
+    li{
+    list-style: none;
+    display:inline;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    }
+
+    li:hover{
+      background-color: $darkGrey;
+    }
+
+    li:first-of-type{
+     
+      border-left: none;
+    }
+  }
+
+  
+  .subnav{
+    display: none;
+  }
+}
+
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 768px){
+
+    .popup{
+      width: 80%;
+      padding: 5%;
+      top: 0;
+      left: 0;
+      min-width: 288px;
+    
+    .popupLeft , .popupRight{
+       width:100% !important;
+    }
+
+    input , button , h3{
+      margin-left: 3%;
+    }
+
+
+    }
+    
+}
+

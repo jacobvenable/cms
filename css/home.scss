@@ -1,0 +1,388 @@
+@import 'default';
+
+h1{
+	float: left;
+	font-size:  40px;
+	font-family: 'DroidSansBold';
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-left: 4%;
+}
+
+
+
+#userNameBalance{
+	float:right;
+	margin-top: 36px;
+	font-size: 24px;
+	margin-right: 4%;
+}
+
+.homepageElement{
+	padding: 4%;
+	margin-bottom: 10px;
+	background-color: white;
+	@include box-shadow-bottom(-3px);
+	h3
+	{
+		font-size: 30px;
+		margin-bottom: 20px;
+		font-family: DroidSansBold;
+		font-weight: bold;
+		text-transform: uppercase;
+
+	}
+	
+	button , input[type="submit"]
+    {
+    background-color: $orange;
+    border: none;
+    font-family: DroidSansBold;
+    font-size: 1em;
+    padding: 15px;
+    @include box-shadow-bottom(-3px);
+    position: relative;
+    top:0;
+    float: right;
+    }
+
+    button:active , input[type="submit"]:active
+    {
+     @include box-shadow-bottom(-5px);
+     
+     top: -1px;
+    }
+
+    button:active , input[type="submit"]:active, button:focus , input[type="submit"]:focus{
+     border: none;
+     outline: 0;
+    }
+}
+
+#statsContainer{
+	width: 24%;
+	float:left;
+	margin-right: 2%;
+	clear:left;
+	h4{
+		font-size: 24px;
+		text-align: center;
+		margin:10px;
+		margin-bottom: 25px;
+	}
+	span{
+		font-family: 'DroidSansBold';
+		color: $green;
+		text-transform:uppercase;
+	}
+}
+
+#transactionContainer{
+	width: 58%;
+	float:right;
+	
+	table{
+		width: 100%;
+		margin-bottom: 25px;
+		font-family: $font-stack;
+		border: 2px solid $grey;
+		@include box-shadow-bottom(-4px);
+		
+		
+	}
+
+	th{
+		text-align: left;
+		background-color: $green;
+		padding: 10px;
+		font-size: 20px;
+		font-family: DroidSansBold;
+		color: white;
+		white-space: nowrap;
+		vertical-align: middle;
+	}
+
+	tr:nth-of-type(odd){
+		background-color: white;
+	}
+
+	tr:nth-of-type(even){
+		background-color: $lightGrey;
+	}
+
+	
+
+	td{
+		text-align: left;
+		padding: 2%;
+		color: $darkGrey;
+		font-size: 16px;
+		overflow: hidden;
+		white-space: nowrap;
+		vertical-align: middle;
+	}
+}
+
+#stocksContainer{
+	width:92%;
+	float:left;
+	overflow: hidden;
+	white-space: nowrap;
+
+	h3{
+		font-size: 30px !important;
+	}
+
+	#toScrollStocks{
+		width: 10000px;
+		height: 250px;
+		position: relative;
+		left: 0px;
+
+		h3{
+		font-size: 48px !important;
+		}
+	}
+
+	
+	h5{
+		font-size: 28px;
+		margin-bottom: 16px;
+	}
+
+	
+
+	button{
+		clear:both;
+	}
+
+	.stockLabels{
+		width: 43%;
+		float:left;
+		padding-right: 7%;
+		text-align: right;
+		padding-top: 6%;
+		padding-bottom: 6%;
+		border-right: 1px solid $grey;
+
+		h5{
+			font-size: 24px;
+			font-family: $font-stack;
+			color: $grey;
+			position: relative;
+			top: 2px;
+		}
+
+		h5:last-of-type{
+			margin-bottom:0px;
+			top: 8px;
+		}
+	}
+
+	.stockValues{
+		width: 43%;
+		float:right;
+		padding-left: 6%;
+		text-align: left;
+		padding-top: 6%;
+		padding-bottom: 6%;
+
+		h5{
+			font-family: DroidSansBold;
+			color: $green;
+
+		}
+
+		.shareValue{
+			position: relative;
+			left: -6px;
+		}
+
+
+		h5:last-of-type{
+			margin-bottom:0px;
+		}
+
+		.super{
+			font-size: 12px;
+			vertical-align: super;
+			font-family: $font-stack;
+		}
+
+		.perShare{
+			font-family: $font-stack;
+			font-size: 14px;
+			font-family: $font-stack;
+		}
+	}
+
+	.controlHolder{
+		height:0;
+		width: 0;
+		overflow: display;
+	}
+
+	#nextStockHolder{
+		float:right;
+	}
+
+	.controls{
+		height: 50px;
+		width: 100px;
+		margin-right: 20px;
+		opacity: .15;
+		z-index: 1;
+		position: relative;
+		background-image: url('../images/leftArrow_333.png');
+		background-repeat:no-repeat;
+		background-position:center; 
+		background-size: 50% auto;
+	}
+
+	.controls:hover{
+		cursor: pointer;
+	}
+
+	#nextStock{
+		left: 0px;
+		background-image: url('../images/rightArrow_333.png');
+	}
+}
+
+#eventsContainer{
+	width: 92%;
+	float:left;
+	overflow:hidden;
+
+	#nextEvent{
+		left: 0px;
+		background-image: url('../images/rightArrow_333.png');
+		}
+
+		#toScrollEvents{
+		width: 10000px;
+		height: 250px;
+		position: relative;
+		left: 0px;
+		height: 200px !important;
+		}
+
+		.controls{
+		height: 50px;
+		width: 100px;
+		margin-right: 20px;
+		opacity: .15;
+		z-index: 1;
+		position: relative;
+		background-image: url('../images/leftArrow_333.png');
+		background-repeat:no-repeat;
+		background-position:center; 
+		background-size: 50% auto;
+		}
+
+		.controls:hover{
+			cursor: pointer;
+		}
+
+		.controlHolder{
+		height:0 !important;
+		width: 0;
+		overflow: display;
+		}
+
+		#nextEventHolder{
+		float:right;
+		}
+
+	.eventTile{
+
+		overflow:hidden;
+			white-space: nowrap;
+
+		h3{
+		font-size: 24px !important;
+		color: $green;
+		text-transform: none;
+		font-family: $font-stack;
+		font-weight: normal;
+		margin-bottom: 8px;
+		width: 100%;
+		padding-bottom: 8px;
+		border-bottom: 1px $grey solid;
+		clear:both;
+
+		span{
+				vertical-align: super;
+				font-size: 16px;
+			}
+		
+		}
+
+		
+
+		h6{
+			font-size: 18px !important;
+			color: $grey;
+			text-transform: none;
+			font-family: $font-stack;
+			width: 100%;
+			text-align: center;
+			margin-bottom: 0px;
+			clear:both;
+
+		}
+
+		h1{
+			font-size: 48px;
+			width:100%;
+			text-align: center;
+			margin: 0;
+			margin-top: 0px;
+			margin-bottom: 30px;
+			margin-top: 30px;
+
+			span{
+				vertical-align: super;
+				font-size: 24px;
+			}
+			clear:both;
+		}
+
+
+
+		h4{
+			font-size: 20px !important;
+			width: 100%;
+			color: $green;
+			text-align: center;
+			padding-bottom: 8px;
+			border-bottom: 1px $grey solid;
+			font-family: DroidSansRegular;
+			margin-bottom: 10px;
+			white-space: nowrap;
+			clear:both;
+
+		}
+
+		.titleContainer{
+			width:100%;
+			overflow:hidden;
+			white-space: nowrap;
+		}
+
+		.descriptionContainer{
+			display: none;
+		}
+
+		
+
+		button{
+			clear:both;
+			padding: 12.5px;
+			font-size: .85em;
+		}
+	}
+}
+
+

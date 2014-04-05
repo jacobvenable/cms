@@ -1,0 +1,171 @@
+@import 'default';
+
+
+
+
+
+#topContainer{
+	
+	overflow:hidden;
+
+	@include box-shadow-bottom(-4px);
+}
+
+#loginPicture{
+	background-image: url('../loginImage.png');
+	
+	float:left;
+	height: 372px;
+	width:68%;
+	margin-top: 25px;
+}
+
+
+#loginField
+{
+	width: 26%;
+	padding: 3%;
+	background-color: white;
+	float: right;
+	margin-top: 25px;
+
+
+	h3
+	{
+		font-size: 30px;
+		margin-bottom: 20px;
+		font-family: DroidSansBold;
+		margin-left: 9%;
+		font-weight: bold;
+		text-transform: uppercase;
+
+	}
+
+	input , button
+	{
+		width: 73%;
+		padding: 3%;
+		margin-left: 9%;
+		margin-right: 9%;
+		margin-bottom: 15px;
+	}
+
+	input:active, input:focus {
+		outline-color: $orange; 
+	}
+
+	button , input[type="submit"]
+	{
+	background-color: $orange;
+	border: none;
+	font-family: DroidSansBold;
+	font-size: 1em;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	color: white;
+	@include box-shadow-bottom(-3px);
+	position: relative;
+	width: 80%;
+	top:0;
+	}
+
+	button:active , input[type="submit"]:active
+	{
+	 @include box-shadow-bottom(-5px);
+	 
+	 top: -2px;
+	}
+
+	button:active , input[type="submit"]:active, button:focus , input[type="submit"]:focus{
+	 border: none;
+	 outline: 0;
+	}
+
+	a
+	{
+		float: right;
+		margin-right: 12%;
+		position: relative;
+		top: -10px;
+		font-size: 12px;
+		margin-top: 10px;
+		color: $grey;
+
+	}
+
+}
+
+.aboutList
+{
+	width: 24%;
+	padding: 4%;
+	float:left;
+	background-color: white;
+	margin-right: 2%;
+	margin-top: 50px;
+	margin-bottom: 25px;
+	@include box-shadow-bottom(-4px);
+
+	h4
+	{
+		font-size: 22px;
+		font-weight: bold;
+		margin-bottom: 11px;
+		text-transform: uppercase;
+		font-family: DroidSansBold;
+	}
+
+	p
+	{
+		font-size: 16px;
+		line-height: 150%;
+		font-family: $font-stack;
+
+	}
+}
+
+.aboutList:last-of-type
+{
+	margin-right: 0;
+	float:right;
+}
+
+
+@media (max-width: 960px){
+
+	#loginPicture
+	{
+		width: 50%;
+	}
+
+	#loginField{
+		width: 44%;
+	}
+}
+
+@media (max-width: 768px){
+
+	#loginPicture
+	{
+		display:none;
+	}
+
+	#loginField{
+		width: 80%;
+		padding: 10%;
+		margin-top: 0px;
+	}
+
+	.aboutList{
+		width: 80%;
+		padding: 10%;
+		margin: 0px;
+		margin-top: 15px;
+	}
+
+	.aboutList:last-of-type
+	{
+	margin-right: 0;
+	float:left;
+	}
+}

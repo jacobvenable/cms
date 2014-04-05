@@ -1,0 +1,89 @@
+@import 'default';
+
+h1{
+	float: left;
+	font-size:  40px;
+	font-family: 'DroidSansBold';
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-left: 4%;
+
+	
+}
+
+.transactionHistoryElement{
+	clear:both;
+	width:96%;
+	border: 1px solid $grey;
+	padding: 2%;
+	overflow: hidden;
+
+	.timestampHolder{
+		float:left;
+		width: 20%;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 24px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 18px;
+			text-align: left;
+		}
+	}
+
+	.infoFromHolder{
+		float:left;
+		width: 40%;
+		white-space: nowrap;
+		overflow: hidden;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 24px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 18px;
+			text-align: left;
+		}
+	}
+
+	.amountBalanceHolder{
+		float:right;
+		width: 25%;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 24px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 18px;
+			text-align: left;
+		}
+	}
+}
+
+.transactionHistoryElement:nth-of-type(odd){
+	background-color: white;
+
+}
+
+.transactionHistoryElement:nth-of-type(even){
+background-color: $lightGrey;
+}
+
+#transactionTile{
+	width: 96% !important;
+	border: none !important;
+	padding: 2%
+}

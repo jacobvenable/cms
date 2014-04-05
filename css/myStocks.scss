@@ -1,0 +1,282 @@
+@import 'default';
+
+h1{
+    float: left;
+    font-size:  40px;
+    font-family: 'DroidSansBold';
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    margin-left: 4%;
+}
+
+
+
+#userNameBalance{
+    float:right;
+    margin-top: 36px;
+    font-size: 24px;
+    margin-right: 4%;
+}
+
+.mainPageElement{
+	padding: 4%;
+    margin-bottom: 10px;
+    background-color: white;
+    @include box-shadow-bottom(-3px);
+    margin: 0 auto;
+
+	
+    h3
+	{
+		font-size: 30px;
+		margin-bottom: 20px;
+		font-family: DroidSansBold;
+		font-weight: bold;
+		text-transform: uppercase;
+
+	}
+	
+	button , input[type="submit"]
+    {
+    background-color: $orange;
+    border: none;
+    font-family: DroidSansBold;
+    font-size: 1em;
+    padding: 15px;
+    @include box-shadow-bottom(-3px);
+    position: relative;
+    top:0;
+    float: right;
+    }
+
+    button:active , input[type="submit"]:active
+    {
+     @include box-shadow-bottom(-5px);
+     
+     top: -1px;
+    }
+
+    button:active , input[type="submit"]:active, button:focus , input[type="submit"]:focus{
+     border: none;
+     outline: 0;
+    }
+} 
+
+.popup{
+    display: none;
+}
+
+#stockScroller{
+    width:92%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    h3{
+        font-size: 30px !important;
+    }
+
+    #toScrollStocks{
+        width: 10000px;
+        height: 250px;
+        position: relative;
+        left: 0px;
+
+        h3{
+        font-size: 48px !important;
+        }
+    }
+
+    
+    h5{
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    
+
+    button{
+        clear:both;
+    }
+
+    .stockLabels{
+        width: 43%;
+        float:left;
+        padding-right: 7%;
+        text-align: right;
+        padding-top: 6%;
+        padding-bottom: 6%;
+        border-right: 1px solid $grey;
+
+        h5{
+            font-size: 24px;
+            font-family: $font-stack;
+            color: $grey;
+            position: relative;
+            top: 2px;
+        }
+
+        h5:last-of-type{
+            margin-bottom:0px;
+            top: 8px;
+        }
+    }
+
+    .stockValues{
+        width: 43%;
+        float:right;
+        padding-left: 6%;
+        text-align: left;
+        padding-top: 6%;
+        padding-bottom: 6%;
+
+        h5{
+            font-family: DroidSansBold;
+            color: $green;
+
+        }
+
+        .shareValue{
+            position: relative;
+            left: -6px;
+        }
+
+
+        h5:last-of-type{
+            margin-bottom:0px;
+        }
+
+        .super{
+            font-size: 12px;
+            vertical-align: super;
+            font-family: $font-stack;
+        }
+
+        .perShare{
+            font-family: $font-stack;
+            font-size: 14px;
+            font-family: $font-stack;
+        }
+    }
+
+    .controlHolder{
+        height:0;
+        width: 0;
+        overflow: display;
+    }
+
+    #nextStockHolder{
+        float:right;
+    }
+
+    .controls{
+        height: 50px;
+        width: 100px;
+        margin-right: 20px;
+        opacity: .15;
+        z-index: 1;
+        position: relative;
+        background-image: url('../images/leftArrow_333.png');
+        background-repeat:no-repeat;
+        background-position:center; 
+        background-size: 50% auto;
+    }
+
+    .controls:hover{
+        cursor: pointer;
+    }
+
+    #nextStock{
+        left: 0px;
+        background-image: url('../images/rightArrow_333.png');
+    }
+
+    button{
+        clear:both;
+        padding: 12.5px;
+        font-size: .85em;
+    }
+
+    button:active , input[type="submit"]:active
+    {
+     @include box-shadow-bottom(-5px);
+     
+     top: 13px;
+    }
+
+    .buyMoreButton{
+        width: 40%;
+        float:right;
+        clear:none;
+        position: relative;
+        top: 15px;
+        margin-right: 3%
+
+    }
+
+    .sellButton{
+        width: 40%;
+        float:left;
+        clear:none;
+        position: relative;
+        top: 15px;
+        margin-left: 3%;
+    }
+
+    .buySellContainer{
+        margin-top: 15px;
+        overflow: visible;
+        float: left;
+        width: 100%;
+    }
+}
+
+
+.popup{
+    display: none;
+}
+
+#stockTransitionContainer{
+
+    table{
+            width: 100%;
+            margin-bottom: 25px;
+            font-family: $font-stack;
+            border: 2px solid $grey;
+            @include box-shadow-bottom(-4px);
+            
+            
+        }
+
+        th{
+            text-align: left;
+            background-color: $green;
+            padding: 10px;
+            font-size: 20px;
+            font-family: DroidSansBold;
+            color: white;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+
+        tr:nth-of-type(odd){
+            background-color: white;
+        }
+
+        tr:nth-of-type(even){
+            background-color: $lightGrey;
+        }
+
+        
+
+        td{
+            text-align: left;
+            padding: 2%;
+            color: $darkGrey;
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+    
+}
