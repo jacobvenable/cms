@@ -18,6 +18,9 @@ h1{
 	border: 1px solid $grey;
 	padding: 2%;
 	overflow: hidden;
+	position: relative;
+	left: 350px;
+	opacity: 0;
 
 	.timestampHolder{
 		float:left;

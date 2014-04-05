@@ -12,7 +12,7 @@ include("includes/openDBConn.php");
 
 
 //SELECT TOP 5 TRANSACTIONS 
-$sql = "SELECT PersonId, WithdrawAccount, DepositAccount, TransactionID, trans.TimeStamp, Amount, Executor, Notes FROM tblbankaccounttransactions trans, tblpeople WHERE Username='".$_SESSION["login"]."' AND (PersonId=WithdrawAccount OR PersonId=DepositAccount) ORDER BY TransactionId LIMIT 5 desc";
+$sql = "SELECT PersonId, WithdrawAccount, DepositAccount, TransactionID, trans.TimeStamp, Amount, Executor, Notes FROM tblbankaccounttransactions trans, tblpeople WHERE Username='".$_SESSION["login"]."' AND (PersonId=WithdrawAccount OR PersonId=DepositAccount) ORDER BY TransactionId desc LIMIT 5";
 $result = mysql_query($sql);
 
 
@@ -35,8 +35,40 @@ echo "<table border='1'>
 		<th>Amount</th>
 		<th>total</th>
 	</tr>";
-//	while($row = mysql_fetch_array($result))
-	for ($i = 0; $i<5; $i++)
+	
+	//get running balance
+	$sqlBalanceCheck="SELECT Executor, TransactionId, TimeStamp, Amount, Balance FROM (SELECT trans.*, @n := IF(@g <> Executor, 0, @n) + COALESCE(Amount,0) Balance, @g := Executor FROM tblbankaccounttransactions trans SELECT @n:= 0) n, (SELECT @g := 0 ) g ORDER BY Executor, TimeStamp) q";
+
+		$balanceResult = mysql_query($sqlBalanceCheck);
+		
+		$rowBalance=mysql_fetch_array($balanceResult);
+		
+		$balanceAmount = $rowBalance['Balance'];
+
+/*
+SELECT Tran, credit, debit, time, balance
+FROM
+(
+  SELECT t.*, @n := IF(@g <> id, 0, @n) + COALESCE(credit,0) - COALESCE(debit, 0) balance, @g := id
+    FROM table1 t, (SELECT @n := 0) n, (SELECT @g := 0) g
+   ORDER BY id, time
+) q
+
+*/
+
+
+/*
+	//Need transsactionID, Timestamp amount
+		$sqlBalance = "SELECT Username, PersonId, WithdrawAccount, DepositAccount, SUM(Amount) FROM tblbankaccounttransactions, tblpeople WHERE  Username='".$_SESSION["login"]."' AND (PersonId=WithdrawAccount OR PersonId=DepositAccount) GROUP BY TransactionId";
+		
+		$balanceResult = mysql_query($sqlBalance);
+		
+		$rowBalance=mysql_fetch_array($balanceResult);
+		
+		$balanceAmount = $rowBalance['SUM(Amount)'];
+	//*/
+	
+	while($row = mysql_fetch_array($result))
 	{
 		//GET EXECUTOR NAME
 		$sql2 = "SELECT ppl.PersonId, ppl.FirstName, ppl.LastName, trans.Executor FROM tblbankaccounttransactions trans, tblpeople ppl WHERE trans.Executor='".$row['Executor']."' AND trans.Executor=ppl.PersonId";
@@ -53,10 +85,10 @@ echo "<table border='1'>
 		$resultTimeStamp	= mysql_query($sqlTimeStamp);
 		$rowTimeStamp		= mysql_fetch_array($resultTimeStamp);
 		$timeStamp			=$rowTimeStamp['TimeStamp'];
-		
+	/*	
 		//runing balance
 			//Need transsactionID, Timestamp amount
-		$sqlBalance = "SELECT Username, PersonId, WithdrawAccount, DepositAccount, SUM(Amount) FROM tblbankaccounttransactions tblpeople WHERE Username='".$_SESSION["login"]."' AND (PersonId=WithdrawAccount OR PersonId=DepositAccount) ";
+		$sqlBalance = "SELECT Username, PersonId, WithdrawAccount, DepositAccount, SUM(Amount) FROM tblbankaccounttransactions tblpeople WHERE TransactionID='".$row['TransactionID']."'";
 		
 		$balanceResult = mysql_query($sqlBalance);
 		
@@ -64,8 +96,8 @@ echo "<table border='1'>
 		
 		$balanceAmount = $rowBalance['SUM(Amount)'];
 		
-		
-		echo $sqlTimeStamp."<br/>  ". "TimeStamp: " . $timeStamp . " <br/>" . $balanceAmount . "<br/>";
+		//*/
+		echo $sqlTimeStamp."<br/>  ". "TimeStamp: " . $timeStamp . " <br/>" . "Running Balance: ".$balanceAmount . "<br/>";
 		
 		//ECHO OUT
 		echo "<tr>";

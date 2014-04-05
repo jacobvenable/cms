@@ -268,7 +268,10 @@ h1 {
   width: 96%;
   border: 1px solid #cccccc;
   padding: 2%;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative;
+  left: 350px;
+  opacity: 0; }
   .transactionHistoryElement .timestampHolder {
     float: left;
     width: 20%; }

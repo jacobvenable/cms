@@ -6,8 +6,6 @@
 	<head>
 	</head>
 	<body>
-		<!-- corn shoes -->
-		<!-- here is a comment -->
 		<div id="stockMarketMain" class="maincontainer">
 			<h1>Stock Market</h1>
 			<form><select><option>Spring 2014</option><option>Fall 2013</option><option>Spring 2013</option></select></form>
