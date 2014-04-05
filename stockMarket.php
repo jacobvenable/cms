@@ -6,6 +6,7 @@
 	<head>
 	</head>
 	<body>
+	<!-- this comment is better -->
 		<!-- here is a comment -->
 		<div id="stockMarketMain" class="maincontainer">
 			<h1>Stock Market</h1>
