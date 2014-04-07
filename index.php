@@ -34,16 +34,16 @@
 			<!-- aboutListHolder is a div that contains a series of lists that briefly describe the site and its function -->
 			<div id="aboutListHolder">
 				<div id="aboutListOne" class="aboutList">
-					<h4>Play the Game</h4>
-					<p>See where you stack up against other students in CGT! View leaderboards and track your rank as your prgoress through the CGT program!</p>
+					<h4>What is COGENT?</h4>
+					<p>The Computer Graphics Enterprise (COGENT) is used in Purdue University's Department of Computer Graphics Technology as an artificial currency to encourage students to engage in activities inside and outside of the classroom. To earn Cogent, students place requests through a departmental e-banking system called the Cogent Management System (CMS).</p>
 				</div>
 				<div id="aboutListTwo" class="aboutList">
-					<h4>Earn Cogent</h4>
-					<p>Use the Cogent Management System to submit activites to add to your Cogent bank account. Use this money to buy your grade in CGT411 and 450!</p>
+					<h4>Purdue AfterClass Experience</h4>
+					<p>AfterClass aims to engage more students outside of the classroom and help cultivate skills that students may not otherwise learn from just being in a classroom setting. Using Mozilla OpenBadges and Purdue Passport, the badges obtained in the Cogent Management System will, in time, be able to be integrated into an official co-curricular transcript that represents students' out-of-class achievements.</p>
 				</div>
 				<div id="aboutListThree" class="aboutList">
-					<h4>Invest and Prosper</h4>
-					<p>Use your earned Cogent to invest in CGT411/450 student projects. Play the stock market and reap the benefits of your investments!</p>
+					<h4>Play the Gamer</h4>
+					<p>See where you stack up against other students in CGT. View leaderboards and track your rank as you progress through the CGT program. Use your earned Cogent to invest in CGT 411/450 student projects. Play the stock market and reap the benefits of your investments.</p>
 				</div>
 			</div>
 
