@@ -27,9 +27,8 @@
 	$sql = "SELECT * FROM tblpeople WHERE Username='".$userID."' AND Password='".$password."'";
 	
 	//select value from table
-	$row = mysql_fetch_array($result);
-	
 	$result = mysql_query($sql);
+	$row = mysql_fetch_array($result);
 	
 	if(empty($result))
 	{
@@ -45,6 +44,12 @@
 		//session values online = "1";
 		$_SESSION["User"] = $userID;
 		$_SESSION["BankAccountId"] = $row["BankAccountId"];
+		$_SESSION["FirstName"] = $row["FirstName"];
+		$_SESSION["LastName"] = $row["LastName"];
+		$sql = "SELECT CurrentBalance FROM tblBankAccounts WHERE AccountId =".$row["BankAccountId"].";";
+		$result = mysql_query($sql);
+		$row = mysql_fetch_array($result);
+		$_SESSION["BankAccountBalance"] = $row["CurrentBalance"];
 		header("Location: home.php");
 	}
 	else
