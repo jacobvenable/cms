@@ -1,5 +1,4 @@
 <?php
-session_start();
 $login = $_SESSION["login"];
 include("includes/openDBConn.php");
 // Find user stocks
@@ -41,8 +40,6 @@ for($i = 0; $i < $stocks; $i++)
 	echo "<h5 class=\"shareValue\"><span class=\"super\">$</span>".$price."<span class=\"perShare\">/sh</span></h5>";
 	echo "</div>";
 	echo "<div class=\"buySellContainer\">";
-	echo "<button class=\"buyMoreButton\">Buy More</button>";
-	echo "<button class=\"sellButton\">Sell</button>";
 	echo "</div>";
 	echo "</div>";
 }
