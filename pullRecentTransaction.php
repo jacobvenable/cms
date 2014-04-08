@@ -2,7 +2,7 @@
 //SESSION START
 session_start();
 
-$_SESSION["login"]="tburton";
+$_SESSION["BankAccountId"] = "";
 
 //CONNECT TO DB
 include("includes/openDBConn.php");
@@ -37,13 +37,14 @@ echo "<table border='1'>
 	</tr>";
 	
 	//get running balance
-	$sqlBalanceCheck="SELECT Executor, TransactionId, TimeStamp, Amount, Balance FROM (SELECT trans.*, @n := IF(@g <> Executor, 0, @n) + COALESCE(Amount,0) Balance, @g := Executor FROM tblbankaccounttransactions trans SELECT @n:= 0) n, (SELECT @g := 0 ) g ORDER BY Executor, TimeStamp) q";
-
+	
+	$sqlBalanceCheck="SELECT CurrentBalance FROM tblBankAccounts WHERE AccountId = ". $_SESSION["accountId"] .";";
+	echo($sqlBalanceCheck);
 		$balanceResult = mysql_query($sqlBalanceCheck);
 		
 		$rowBalance=mysql_fetch_array($balanceResult);
-		
-		$balanceAmount = $rowBalance['Balance'];
+		$runningBalance = $rowBalance['CurrentBalance'];
+		//$balanceAmount = $rowBalance['Balance'];
 
 /*
 SELECT Tran, credit, debit, time, balance
@@ -97,7 +98,7 @@ FROM
 		$balanceAmount = $rowBalance['SUM(Amount)'];
 		
 		//*/
-		echo $sqlTimeStamp."<br/>  ". "TimeStamp: " . $timeStamp . " <br/>" . "Running Balance: ".$balanceAmount . "<br/>";
+		//echo $sqlTimeStamp."<br/>  ". "TimeStamp: " . $timeStamp . " <br/>" . "Running Balance: ".$balanceAmount . "<br/>";
 		
 		//ECHO OUT
 		echo "<tr>";
@@ -106,8 +107,17 @@ FROM
 			echo "<td>".$Executor."</td>"	;
 			echo "<td>".$row['Notes']."</td>";	
 			echo "<td>".$row['Amount']."</td>";
-			echo "<td>".""."</td>";							
+			echo "<td>".$runningBalance."</td>";							
 		echo "</tr>";
+		
+		if($row['WithdrawAccount'] == $_SESSION["accountId"])
+		{
+			$runningBalance = $runningBalance - $row['Amount'];
+		}
+		else
+		{
+			$runningBalance = $runningBalance + $row['Amount'];
+		}
 	}
 echo "</table>";
 

@@ -1,17 +1,18 @@
 <?php
-	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+	include("includes/openDbConn.php");
 ?>
 <!DOCTYPE html>
 <html> 
 <head>
-		<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
-		<script type="text/javascript" src="js/home.js" ></script>
-		<script type="text/javascript" src="js/easing.js" ></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+	<script type="text/javascript" src="js/home.js" ></script>
+	<script type="text/javascript" src="js/easing.js" ></script>
 	<link rel="stylesheet" type="text/css" href="css/home.css" />
 </head>
 <body>
 	<!-- nav import will happen around here -->
-    <?php include("nav.php"); ?>
+    <?php include("nav.php");?>
 	<div id="homeMain" class="maincontainer">
 		<div id="nameBalance">
 		<h1>Home</h1>
@@ -21,7 +22,7 @@
 			<h3>My Stats</h3>
 			<canvas id="myChart" width="400" height="400" style="display:none"></canvas>
 				<script>
-				var progress = 281945;
+				var progress = <?php echo($_SESSION["BankAccountBalance"]); ?>;
 				var total = 405000;
 				var animateProgress = 0;
 				var	stepnumber = 60;
@@ -309,66 +310,60 @@
 		<h3>Recent Transactions</h3>
 			<table id="transactionTable">
 				<tr>
-				  <th>ID</th>
-				  <th>Date</th>		
-				  <th>Executor</th>
-				  <th>Notes</th>
-				  <th>Amount</th>
-				  <th>Total</th>
+					<th>ID</th>
+					<th>Date</th>
+					<th>Executor</th>
+					<th>Notes</th>
+					<th>Amount</th>
+					<th>Total</th>
 				</tr>
-				<tr>
-				  <td>5</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>4</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>5</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>3</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>2</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-			
-				<tr>
-				  <td>1</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
+				<?php
+					$sql1 = "SELECT * FROM tblbankaccounttransactions WHERE WithdrawAccount='".$_SESSION["BankAccountId"]."' OR DepositAccount='".$_SESSION["BankAccountId"]."' ORDER BY TransactionId desc LIMIT 5";
+					$result = mysql_query($sql1);
+					if(!$result)
+					{
+						echo ("Failed to Retrieve Information");
+					}
+					else
+					{
+						$numRows = mysql_num_rows($result);
+						$runningBalance = $_SESSION["BankAccountBalance"];
+						if($numRows > 0)
+						{
+							for($i=0;$i<$numRows;$i++)
+							{
+								$row2= mysql_fetch_array($result);
+								echo "<tr>";
+								echo "<td>".$row2['TransactionId']."</td>";
+								echo "<td>".$row2['TimeStamp']."</td>";
+								echo "<td>".$row2['Executor']."</td>"	;
+								echo "<td>".$row2['Notes']."</td>";
+								if($row2['WithdrawAccount'] == $_SESSION["BankAccountId"])
+								{
+									echo "<td>-".$row2['Amount']."</td>";
+								}
+								else
+								{
+									echo "<td>+".$row2['Amount']."</td>";
+								}
+								echo "<td>".$runningBalance."</td>";							
+								echo "</tr>";
+								if($row2['WithdrawAccount'] == $_SESSION["BankAccountId"])
+								{
+									$runningBalance = $runningBalance + $row2['Amount'];
+								}
+								else
+								{
+									$runningBalance = $runningBalance - $row2['Amount'];
+								}
+							}
+						}
+						else
+						{
+							echo "<p>No Recent Transactions</p>";
+						}
+					}
+				?>
 			</table>
 			<a href="transactions.php"><button id="viewTransactionsButton">View Transcations</button></a>
 		</div>
@@ -547,3 +542,4 @@
 
 </body>
 </html>
+<?php include("includes/closeDbConn.php"); ?>
