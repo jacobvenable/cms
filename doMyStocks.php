@@ -1,7 +1,7 @@
 <?php
 session_start();
 $login = $_SESSION["login"];
-include("Includes/openDBConn.php");
+include("includes/openDBConn.php");
 // Find user stocks
 
 $sqlPersonId = "SELECT PersonId FROM tblPeople WHERE Username = '".$login."'";
@@ -29,7 +29,7 @@ for($i = 0; $i < $stocks; $i++)
 	$resultPrice = mysql_query($sqlPrice);
 	$rowPrice = mysql_fetch_array($resultPrice);
 	$price = $rowPrice['Price'];
-		
+	include("includes/closeDBConn.php");
 	echo "<div id=\"stock\"".$stocks." class=\"infoTile stockTile\">";
 	echo "<h3>".$groupTicker."</h3>";
 	echo "<div class=\"stockLabels\">";

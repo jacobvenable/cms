@@ -42,7 +42,7 @@
 	if($num_records != 0)
 	{
 		//session values online = "1";
-		$_SESSION["User"] = $userID;
+		$_SESSION["login"] = $userID;
 		$_SESSION["BankAccountId"] = $row["BankAccountId"];
 		$_SESSION["FirstName"] = $row["FirstName"];
 		$_SESSION["LastName"] = $row["LastName"];
