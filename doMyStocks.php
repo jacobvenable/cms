@@ -28,7 +28,7 @@ for($i = 0; $i < $stocks; $i++)
 	$resultPrice = mysql_query($sqlPrice);
 	$rowPrice = mysql_fetch_array($resultPrice);
 	$price = $rowPrice['Price'];
-	include("includes/closeDBConn.php");
+	
 	echo "<div id=\"stock\"".$stocks." class=\"infoTile stockTile\">";
 	echo "<h3>".$groupTicker."</h3>";
 	echo "<div class=\"stockLabels\">";
@@ -43,7 +43,7 @@ for($i = 0; $i < $stocks; $i++)
 	echo "</div>";
 	echo "</div>";
 }
-
+include("includes/closeDBConn.php");
 ?>
 
 
