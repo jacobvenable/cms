@@ -35,14 +35,14 @@
 			<div id="aboutListHolder">
 				<div id="aboutListOne" class="aboutList">
 					<h4>What is COGENT?</h4>
-					<p>The Computer Graphics Enterprise (COGENT) is used in Purdue University's Department of Computer Graphics Technology as an artificial currency to encourage students to engage in activities inside and outside of the classroom. To earn Cogent, students place requests through a departmental e-banking system called the Cogent Management System (CMS).</p>
+					<p>The Computer Graphics Enterprise (COGENT) is used in Purdue University's Department of Computer Graphics Technology as an artificial currency. To earn Cogent, students place requests through a departmental e-banking system called the Cogent Management System (CMS).</p>
 				</div>
 				<div id="aboutListTwo" class="aboutList">
-					<h4>Purdue AfterClass Experience</h4>
-					<p>AfterClass aims to engage more students outside of the classroom and help cultivate skills that students may not otherwise learn from just being in a classroom setting. Using Mozilla OpenBadges and Purdue Passport, the badges obtained in the Cogent Management System will, in time, be able to be integrated into an official co-curricular transcript that represents students' out-of-class achievements.</p>
+					<h4>Engagement</h4>
+					<p>Students are encouraged to engage in activities inside and outside of the classroom as well as with alumni and high school students.</p>
 				</div>
 				<div id="aboutListThree" class="aboutList">
-					<h4>Play the Gamer</h4>
+					<h4>Play the Game</h4>
 					<p>See where you stack up against other students in CGT. View leaderboards and track your rank as you progress through the CGT program. Use your earned Cogent to invest in CGT 411/450 student projects. Play the stock market and reap the benefits of your investments.</p>
 				</div>
 			</div>
