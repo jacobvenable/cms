@@ -333,10 +333,12 @@
 							for($i=0;$i<$numRows;$i++)
 							{
 								$row2= mysql_fetch_array($result);
+								$date = new DateTime($row2['TimeStamp']);
+								$dateFormatted = $date->format('m/d/Y');
 								echo "<tr>";
 								echo "<td>".$row2['TransactionId']."</td>";
-								echo "<td>".$row2['TimeStamp']."</td>";
-								echo "<td>".$row2['Executor']."</td>"	;
+								echo "<td>".$dateFormatted."</td>";
+								echo "<td>".$row2['Executor']."</td>";
 								echo "<td>".$row2['Notes']."</td>";
 								if($row2['WithdrawAccount'] == $_SESSION["BankAccountId"])
 								{
@@ -365,7 +367,7 @@
 					}
 				?>
 			</table>
-			<a href="transactions.php"><button id="viewTransactionsButton">View Transcations</button></a>
+			<a href="transactions.php"><button id="viewTransactionsButton">View Transactions</button></a>
 		</div>
 
 		<!-- stocksContainer holds the user's stock investements in tile form and by order of value -->
@@ -374,90 +376,7 @@
 			<div id="nextStockHolder" class="controlHolder"><div id="nextStock" class="controls"></div></div>
 			<div id="prevStockHolder" class="controlHolder"><div id="prevStock" class="controls"></div></div>
 			<div id="toScrollStocks">
-
-				<div id="HNY" class="infoTile stockTile">
-					<h3>HNY</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>100</h5>
-						<h5 class="shareValue"><span class="super">$</span>135<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="HTM" class="infoTile stockTile">
-					<h3>HTM</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>30</h5>
-						<h5 class="shareValue"><span class="super">$</span>160<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="HNY" class="infoTile stockTile">
-					<h3>HNY</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>100</h5>
-						<h5 class="shareValue"><span class="super">$</span>135<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				
+				<?php include("doMyStocks.php"); ?>
 			</div>
 			
 			<a href="transactions.php"><button>Manage Stock</button></a>
