@@ -1,5 +1,6 @@
 <?php
-	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+	session_start();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -157,7 +158,7 @@
 			<div id="prevStockHolder" class="controlHolder"><div id="prevStock" class="controls"></div></div>
 			<div id="toScrollStocks">
 
-				<div id="HNY" class="infoTile stockTile">
+				<div id="stock1" class="infoTile stockTile">
 					<h3>HNY</h3>
 					<div class="stockLabels">
 						<h5>shares</h5>
@@ -173,7 +174,7 @@
 					</div>
 				</div>
 
-				<div id="RZR" class="infoTile stockTile">
+				<div id="stock2" class="infoTile stockTile">
 					<h3>RZR</h3>
 					<div class="stockLabels">
 						<h5>shares</h5>
