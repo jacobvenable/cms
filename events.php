@@ -40,7 +40,13 @@
 	<div id="cogentEventsMain" class="maincontainer" >
 		<h1>Cogent Events</h1>
 		<div id="eventTile" class="infoTile">
+<<<<<<< HEAD
 			<div id="cogentEvent14" class="eventElement">
+=======
+        
+        <?php include("doDisplayEvents.php"); ?>
+			<!--<div id="cogentEvent14" class="eventElement">
+>>>>>>> ce2a8ad23665b8ac2464f7d003bb86a1dcc40184
 				<div class="eventDescriptionContainer">
 					<h3>March 11th</h3>
 					<h5>6:00pm- 6:30pm | EE17</h5>
@@ -50,6 +56,7 @@
 					<h5>$500 Stock Equivalent</h5>
 				</div>
 				<button>More Info</button>
+<<<<<<< HEAD
 			</div>
 
 			<div id="cogentEvent14" class="eventElement">
@@ -135,6 +142,10 @@
 				</div>
 				<button>More Info</button>
 			</div>
+=======
+			</div>-->
+
+>>>>>>> ce2a8ad23665b8ac2464f7d003bb86a1dcc40184
 		</div>
 	</div>
 	<div id="eventInfoPopUp" class="popup">

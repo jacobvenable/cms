@@ -1,17 +1,18 @@
 <?php
-	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+	include("includes/openDbConn.php");
 ?>
 <!DOCTYPE html>
 <html> 
 <head>
-		<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
-		<script type="text/javascript" src="js/home.js" ></script>
-		<script type="text/javascript" src="js/easing.js" ></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+	<script type="text/javascript" src="js/home.js" ></script>
+	<script type="text/javascript" src="js/easing.js" ></script>
 	<link rel="stylesheet" type="text/css" href="css/home.css" />
 </head>
 <body>
 	<!-- nav import will happen around here -->
-    <?php include("nav.php"); ?>
+    <?php include("nav.php");?>
 	<div id="homeMain" class="maincontainer">
 		<div id="nameBalance">
 		<h1>Home</h1>
@@ -21,7 +22,7 @@
 			<h3>My Stats</h3>
 			<canvas id="myChart" width="400" height="400" style="display:none"></canvas>
 				<script>
-				var progress = 281945;
+				var progress = <?php echo($_SESSION["BankAccountBalance"]); ?>;
 				var total = 405000;
 				var animateProgress = 0;
 				var	stepnumber = 60;
@@ -309,68 +310,64 @@
 		<h3>Recent Transactions</h3>
 			<table id="transactionTable">
 				<tr>
-				  <th>ID</th>
-				  <th>Date</th>		
-				  <th>Executor</th>
-				  <th>Notes</th>
-				  <th>Amount</th>
-				  <th>Total</th>
+					<th>ID</th>
+					<th>Date</th>
+					<th>Executor</th>
+					<th>Notes</th>
+					<th>Amount</th>
+					<th>Total</th>
 				</tr>
-				<tr>
-				  <td>5</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>4</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>5</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>3</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-				
-				<tr>
-				  <td>2</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
-			
-				<tr>
-				  <td>1</td>
-				  <td>9/20/2013</td>		
-				  <td>Terry Burton</td>
-				  <td>Test</td>
-				  <td>-100</td>
-				  <td>150,000.00</td>
-				 </tr>
+				<?php
+					$sql1 = "SELECT * FROM tblbankaccounttransactions WHERE WithdrawAccount='".$_SESSION["BankAccountId"]."' OR DepositAccount='".$_SESSION["BankAccountId"]."' ORDER BY TransactionId desc LIMIT 5";
+					$result = mysql_query($sql1);
+					if(!$result)
+					{
+						echo ("Failed to Retrieve Information");
+					}
+					else
+					{
+						$numRows = mysql_num_rows($result);
+						$runningBalance = $_SESSION["BankAccountBalance"];
+						if($numRows > 0)
+						{
+							for($i=0;$i<$numRows;$i++)
+							{
+								$row2= mysql_fetch_array($result);
+								$date = new DateTime($row2['TimeStamp']);
+								$dateFormatted = $date->format('m/d/Y');
+								echo "<tr>";
+								echo "<td>".$row2['TransactionId']."</td>";
+								echo "<td>".$dateFormatted."</td>";
+								echo "<td>".$row2['Executor']."</td>";
+								echo "<td>".$row2['Notes']."</td>";
+								if($row2['WithdrawAccount'] == $_SESSION["BankAccountId"])
+								{
+									echo "<td>-".$row2['Amount']."</td>";
+								}
+								else
+								{
+									echo "<td>+".$row2['Amount']."</td>";
+								}
+								echo "<td>".$runningBalance."</td>";							
+								echo "</tr>";
+								if($row2['WithdrawAccount'] == $_SESSION["BankAccountId"])
+								{
+									$runningBalance = $runningBalance + $row2['Amount'];
+								}
+								else
+								{
+									$runningBalance = $runningBalance - $row2['Amount'];
+								}
+							}
+						}
+						else
+						{
+							echo "<p>No Recent Transactions</p>";
+						}
+					}
+				?>
 			</table>
-			<a href="transactions.php"><button id="viewTransactionsButton">View Transcations</button></a>
+			<a href="transactions.php"><button id="viewTransactionsButton">View Transactions</button></a>
 		</div>
 
 		<!-- stocksContainer holds the user's stock investements in tile form and by order of value -->
@@ -379,90 +376,7 @@
 			<div id="nextStockHolder" class="controlHolder"><div id="nextStock" class="controls"></div></div>
 			<div id="prevStockHolder" class="controlHolder"><div id="prevStock" class="controls"></div></div>
 			<div id="toScrollStocks">
-
-				<div id="HNY" class="infoTile stockTile">
-					<h3>HNY</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>100</h5>
-						<h5 class="shareValue"><span class="super">$</span>135<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="HTM" class="infoTile stockTile">
-					<h3>HTM</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>30</h5>
-						<h5 class="shareValue"><span class="super">$</span>160<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="HNY" class="infoTile stockTile">
-					<h3>HNY</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>100</h5>
-						<h5 class="shareValue"><span class="super">$</span>135<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-				</div>
-
-				
+				<?php include("doMyStocks.php"); ?>
 			</div>
 			
 			<a href="transactions.php"><button>Manage Stock</button></a>
@@ -547,3 +461,4 @@
 
 </body>
 </html>
+<?php include("includes/closeDbConn.php"); ?>

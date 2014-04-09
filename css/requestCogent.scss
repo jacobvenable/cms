@@ -1,0 +1,73 @@
+@import 'default';
+
+h1{
+	float: left;
+	font-size:  40px;
+	font-family: 'DroidSansBold';
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-left: 4%;
+
+	
+}
+
+#transferCogentContainer{
+	width: 100%;
+}
+
+label{
+	font-family: $font-stack;
+	font-size: 20px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+input{
+		float:left;
+}
+
+input[type="select"] , select{
+	width: 96%;
+	padding: 2%;
+	margin-bottom: 25px;
+	font-size: 16px;
+}
+
+#transferRecipientAmount{
+	width: 32%;
+	float:left;
+}
+
+#memoContainer{
+	width: 64%;
+	float:right;
+}
+
+textarea{
+	width: 96%;
+	padding: 2%;
+	height: 250px;
+}
+
+input[type="submit"] ,button{
+	height: 50px !important;
+	float:right;
+	margin-top: 15px;
+	padding: 10px;
+}
+
+input[type="radio"]{
+	clear:left;
+	float:left;
+}
+
+#recipientLabel{
+	clear:left;
+	margin-top: 25px;
+}
+
+.infoTile{
+	width: 96% !important;
+	border: none;
+}

@@ -1,0 +1,124 @@
+@import 'default';
+
+h1{
+	float: left;
+	font-size:  40px;
+	font-family: 'DroidSansBold';
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-left: 4%;
+
+	
+}
+
+.stockEntryElement{
+	clear:both;
+	width:96%;
+	border: 1px solid $grey;
+	padding: 2%;
+	overflow: hidden;
+	position: relative;
+	left: 200px;
+	opacity: 0;
+
+	.timestampHolder{
+		float:left;
+		width: 20%;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 20px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 16px;
+			text-align: left;
+		}
+	}
+
+	.infoRequestHolder{
+		float:left;
+		width: 40%;
+		white-space: nowrap;
+		overflow: hidden;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 20px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 16px;
+			text-align: left;
+		}
+
+	}
+
+		button{
+			padding: 10px;
+			margin: 0px;
+			margin-top: 5px;
+			float:right;
+		}
+
+		.buttonHolder{
+			float:right;
+			width: 10%;
+		}
+	
+
+	.amountStatusHolder{
+		float:left;
+		width: 25%;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 20px;
+			text-align: right;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 16px;
+			text-align: right;
+		}
+	}
+
+	
+}
+
+.stockEntryElement:nth-of-type(odd){
+	background-color: white;
+
+}
+
+.stockEntryElement:nth-of-type(even){
+background-color: $lightGrey;
+}
+
+#marketTile{
+	width: 96% !important;
+	border: none !important;
+	padding: 2%
+}
+
+.popup{
+	display: none;
+}
+
+
+
+select{
+	margin-top: 20px;
+	float:right;
+	margin-right: 4%;
+	width: 15%;
+	padding: 10px;
+	font-family: $font-stack;
+	font-size: 16px;
+}

@@ -1,5 +1,5 @@
 <?php
-	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -156,120 +156,9 @@
 			<div id="nextStockHolder" class="controlHolder"><div id="nextStock" class="controls"></div></div>
 			<div id="prevStockHolder" class="controlHolder"><div id="prevStock" class="controls"></div></div>
 			<div id="toScrollStocks">
-
-				<div id="HNY" class="infoTile stockTile">
-					<h3>HNY</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>100</h5>
-						<h5 class="shareValue"><span class="super">$</span>135<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-
-				<div id="HTM" class="infoTile stockTile">
-					<h3>HTM</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>30</h5>
-						<h5 class="shareValue"><span class="super">$</span>160<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-
-				<div id="HNY" class="infoTile stockTile">
-					<h3>HNY</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>100</h5>
-						<h5 class="shareValue"><span class="super">$</span>135<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-				<div id="RZR" class="infoTile stockTile">
-					<h3>RZR</h3>
-					<div class="stockLabels">
-						<h5>shares</h5>
-						<h5>value</h5>
-					</div>
-					<div class="stockValues">
-						<h5>90</h5>
-						<h5 class="shareValue"><span class="super">$</span>105<span class="perShare">/sh</span></h5>
-					</div>
-					<div class="buySellContainer">
-						<button class="buyMoreButton">Buy More</button>
-						<button class="sellButton">Sell</button>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
+				<?php include ("doMyStocks.php"); ?>         			
+			</div> <!-- close toScrollStocks -->
+		</div> <!-- close stockScroller -->
 		<div id="stockTransitionContainer" class="mainPageElement" >
 		<h3>Stock Transaction History</h3>
 			<table id="stockTransactionTable">
@@ -335,8 +224,8 @@
 				  <td>150,000.00</td>
 				 </tr>
 			</table>
-		</div>
-
+		</div> <!-- close stockTransitionContainer -->
+</div> <!-- close MyStocksMain -->
 	<div id="buyPopup" class="popup">
 		<h3>Invest in Company Name</h3>
 		<form buyStock.php>

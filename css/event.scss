@@ -1,0 +1,116 @@
+@import 'default';
+
+h1{
+	float: left;
+	font-size:  40px;
+	font-family: 'DroidSansBold';
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-left: 4%;
+
+	
+}
+
+.eventElement{
+	clear:both;
+	width:96%;
+	border: 1px solid $grey;
+	padding: 2%;
+	overflow: hidden;
+	position: relative;
+	left: 200px;
+	opacity: 0;
+
+	.timestampHolder{
+		float:left;
+		width: 20%;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 20px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 16px;
+			text-align: left;
+		}
+	}
+
+	.eventInfoContainer{
+		float:left;
+		width: 40%;
+		white-space: nowrap;
+		overflow: hidden;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 20px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 16px;
+			text-align: left;
+		}
+
+	}
+
+		button{
+			padding: 10px;
+			margin: 0px;
+			margin-top: 5px;
+			float:right;
+			clear: none !important;
+		}
+
+		.buttonHolder{
+			float:right;
+			width: 10%;
+		}
+	
+		.eventDescriptionContainer{
+		float:left;
+		width: 25%;
+		white-space: nowrap;
+		overflow: hidden;
+
+		h3{
+			font-family: $font-stack;
+			font-size: 20px;
+			text-align: left;
+			color: $green;
+		}
+		h5{
+			font-family: $font-stack;
+			font-size: 16px;
+			text-align: left;
+		}
+
+	}
+	
+}
+
+.eventElement:nth-of-type(odd){
+	background-color: white;
+
+}
+
+.eventElement:nth-of-type(even){
+background-color: $lightGrey;
+}
+
+#eventTile{
+	width: 96% !important;
+	border: none !important;
+	padding: 2%;
+	overflow: hidden;
+}
+
+.popup{
+	display: none;
+}
+

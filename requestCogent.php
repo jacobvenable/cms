@@ -33,6 +33,7 @@
 			<h1>Request Cogent</h1>
 			<button id="adder">+ Add</button>
 			<button>Submit</button>
+<<<<<<< HEAD
 			<form id="doRequestCogent" action="doRequestCogent.php" method="post">
 			<div id="requestCogentEntry0" class="cogentRequestForm infoTile">
 				
@@ -47,6 +48,15 @@
 					<input type="submit" value="Transfer Cogent" />
 				</div>
 				
+=======
+
+			<div id="requestCogentEntry1" class="cogentRequestForm">
+				<form action="doSubmitCogent.php" method="post">
+					<label for="requestType">Type</label><select name="requestType"><option>Type 1</option><option>Type 2</option><option>Type 3</option></select>
+					<label for="requestAmount">Amount</label><select name="requestAmount"><option>50</option><option>100</option><option>Other</option></select>
+					<label for="requestMemo">Memo</label><textarea name="requestMemo"></textarea>
+				</form>
+>>>>>>> ce2a8ad23665b8ac2464f7d003bb86a1dcc40184
 			</div>
 			</form>
 			<!-- will create a javascript function for adding an removing these as necessary -->
