@@ -1,6 +1,6 @@
 <?php
 	echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-	include("includes/openDbConn.php");
+		include("includes/openDbConn.php");
 ?>
 <!DOCTYPE html>
 <html> 
@@ -365,6 +365,7 @@
 							echo "<p>No Recent Transactions</p>";
 						}
 					}
+					include("includes/closeDbConn.php");
 				?>
 			</table>
 			<a href="transactions.php"><button id="viewTransactionsButton">View Transactions</button></a>
@@ -461,4 +462,3 @@
 
 </body>
 </html>
-<?php include("includes/closeDbConn.php"); ?>
