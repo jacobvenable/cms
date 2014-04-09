@@ -19,7 +19,7 @@ h1{
 	padding: 2%;
 	overflow: hidden;
 	position: relative;
-	left: 350px;
+	left: 200px;
 	opacity: 0;
 
 	.timestampHolder{
@@ -28,13 +28,13 @@ h1{
 
 		h3{
 			font-family: $font-stack;
-			font-size: 24px;
+			font-size: 20px;
 			text-align: left;
 			color: $green;
 		}
 		h5{
 			font-family: $font-stack;
-			font-size: 18px;
+			font-size: 16px;
 			text-align: left;
 		}
 	}
@@ -47,13 +47,13 @@ h1{
 
 		h3{
 			font-family: $font-stack;
-			font-size: 24px;
+			font-size: 20px;
 			text-align: left;
 			color: $green;
 		}
 		h5{
 			font-family: $font-stack;
-			font-size: 18px;
+			font-size: 16px;
 			text-align: left;
 		}
 	}
@@ -64,15 +64,25 @@ h1{
 
 		h3{
 			font-family: $font-stack;
-			font-size: 24px;
-			text-align: left;
+			font-size: 20px;
+			text-align: right;
 			color: $green;
 		}
 		h5{
 			font-family: $font-stack;
-			font-size: 18px;
-			text-align: left;
+			font-size: 16px;
+			text-align: right;
 		}
+	}
+
+	.transactionInfoButton{
+		
+		float:right;
+		width: 10%;
+		height: 30px !important;
+		padding: 0px;
+		margin: 0px;
+
 	}
 }
 

@@ -270,19 +270,19 @@ h1 {
   padding: 2%;
   overflow: hidden;
   position: relative;
-  left: 350px;
+  left: 200px;
   opacity: 0; }
   .transactionHistoryElement .timestampHolder {
     float: left;
     width: 20%; }
     .transactionHistoryElement .timestampHolder h3 {
       font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-      font-size: 24px;
+      font-size: 20px;
       text-align: left;
       color: #53b352; }
     .transactionHistoryElement .timestampHolder h5 {
       font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-      font-size: 18px;
+      font-size: 16px;
       text-align: left; }
   .transactionHistoryElement .infoFromHolder {
     float: left;
@@ -291,25 +291,31 @@ h1 {
     overflow: hidden; }
     .transactionHistoryElement .infoFromHolder h3 {
       font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-      font-size: 24px;
+      font-size: 20px;
       text-align: left;
       color: #53b352; }
     .transactionHistoryElement .infoFromHolder h5 {
       font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-      font-size: 18px;
+      font-size: 16px;
       text-align: left; }
   .transactionHistoryElement .amountBalanceHolder {
     float: right;
     width: 25%; }
     .transactionHistoryElement .amountBalanceHolder h3 {
       font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-      font-size: 24px;
-      text-align: left;
+      font-size: 20px;
+      text-align: right;
       color: #53b352; }
     .transactionHistoryElement .amountBalanceHolder h5 {
       font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-      font-size: 18px;
-      text-align: left; }
+      font-size: 16px;
+      text-align: right; }
+  .transactionHistoryElement .transactionInfoButton {
+    float: right;
+    width: 10%;
+    height: 30px !important;
+    padding: 0px;
+    margin: 0px; }
 
 .transactionHistoryElement:nth-of-type(odd) {
   background-color: white; }

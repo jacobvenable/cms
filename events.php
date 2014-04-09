@@ -3,37 +3,138 @@
 ?>
 <html>
 <head>
-	<style>
-		.eventElement{
-			border: #000 1px solid;
+			<link rel="stylesheet" type="text/css" href="css/event.css" />
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+		<script type="text/javascript" src="js/easing.js" ></script>
+	<script type="text/javascript">
+
+	var counter = 0;
+
+	$(document).ready(function(){
+
+
+		animateDivFlyIn();
+		
+		function animateDivFlyIn(i){
+			
+			
+			$('.eventElement:eq(' + counter + ')').animate({
+				left: 0,
+				opacity: 1
+				},300,'easeInOutCirc');
+
+			
+			if(counter < $('.eventElement').length){
+				setTimeout(function(){
+					counter++;
+					animateDivFlyIn();
+				},50);
+			}
+
 		}
-	</style>
+	});
+	</script>
 </head>
 <body>
+<?php include("nav.php"); ?>
 	<div id="cogentEventsMain" class="maincontainer" >
 		<h1>Cogent Events</h1>
-		<div id="cogentEvent14" class="eventElement">
-			<div class="eventInfoContainer">
-				<h3>Gen Y Application Testing</h3>
-				<h5>March 11th | 6:00pm- 6:30pm | EE17</h5>
+		<div id="eventTile" class="infoTile">
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
 			</div>
-			<button>More Info</button>
-		</div>
 
-		<div id="cogentEvent6" class="eventElement">
-			<div class="eventInfoContainer">
-				<h3>Gen Y Application Testing</h3>
-				<h5>March 11th | 6:00pm- 6:30pm | EE17</h5>
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
 			</div>
-			<button>More Info</button>
-		</div>
 
-		<div id="cogentEvent4" class="eventElement">
-			<div class="eventInfoContainer">
-				<h3>Gen Y Application Testing</h3>
-				<h5>March 11th | 6:00pm- 6:30pm | EE17</h5>
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
 			</div>
-			<button>More Info</button>
+
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
+			</div>
+
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
+			</div>
+
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
+			</div>
+
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
+			</div>
+
+			<div id="cogentEvent14" class="eventElement">
+				<div class="eventDescriptionContainer">
+					<h3>March 11th</h3>
+					<h5>6:00pm- 6:30pm | EE17</h5>
+				</div>
+				<div class="eventInfoContainer">
+					<h3>Gen Y Application Testing</h3>
+					<h5>$500 Stock Equivalent</h5>
+				</div>
+				<button>More Info</button>
+			</div>
 		</div>
 	</div>
 	<div id="eventInfoPopUp" class="popup">
