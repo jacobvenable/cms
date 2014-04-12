@@ -1,6 +1,6 @@
 <?php
 $login = $_SESSION["login"];
-include("includes/openDBConn.php");
+include("includes/openDbConn.php");
 // Find user stocks
 
 $sqlPersonId = "SELECT PersonId FROM tblPeople WHERE Username = '".$login."'";
@@ -29,6 +29,7 @@ for($i = 0; $i < $stocks; $i++)
 	$rowPrice = mysql_fetch_array($resultPrice);
 	$price = $rowPrice['Price'];
 	
+
 	echo "<div id=\"stock\"".$stocks." class=\"infoTile stockTile\">";
 	echo "<h3>".$groupTicker."</h3>";
 	echo "<div class=\"stockLabels\">";
@@ -43,7 +44,7 @@ for($i = 0; $i < $stocks; $i++)
 	echo "</div>";
 	echo "</div>";
 }
-include("includes/closeDBConn.php");
+include("includes/closeDbConn.php");
 ?>
 
 

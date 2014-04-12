@@ -32,7 +32,8 @@ q:before, q:after {
   content: none; }
 
 a:link, a:visited, a:focus {
-  text-decoration: none; }
+  text-decoration: none;
+  color: inherit; }
 
 table {
   border-collapse: collapse;
@@ -182,9 +183,9 @@ button:hover, input[type="submit"]:hover {
   top: 0;
   left: 0; }
 
-#header {
+#headerDesktop {
   width: 100%;
-  background-color: #449143;
+  background-color: #333333;
   padding: 15px 0px 0px 0px;
   -webkit-box-shadow: 0 5px 6px -4px #888888;
   -moz-box-shadow: 0 5px 6px -4px #888888;
@@ -193,57 +194,141 @@ button:hover, input[type="submit"]:hover {
   text-transform: uppercase;
   z-index: 100000000000000000000000;
   top: 0; }
-
-#headerTop {
-  width: 90%;
-  max-width: 1366px;
-  margin: auto auto;
-  overflow: hidden; }
-  #headerTop h1 {
-    font-size: 36px;
-    float: left;
-    font-family: DroidSansBold;
-    color: white;
-    margin: 0 !important; }
-  #headerTop h4 {
-    float: right;
-    font-family: "Myriad Pro", "DroidSansRegular", "Arial";
-    color: white;
-    font-size: 18px;
-    margin-top: 15px; }
-
-#headerBottom {
-  width: 90%;
-  margin: 15px auto;
-  margin-bottom: 0px;
-  background-color: #ff7e2f;
-  padding: 5%;
-  padding-top: 10px;
-  padding-bottom: 10px; }
-  #headerBottom #mainNavHolder {
+  #headerDesktop #headerTop {
+    width: 90%;
+    max-width: 1366px;
+    margin: auto auto;
+    overflow: hidden; }
+    #headerDesktop #headerTop h1 {
+      font-size: 36px;
+      float: left;
+      font-family: DroidSansBold;
+      color: white;
+      margin: 0 !important; }
+    #headerDesktop #headerTop h4 {
+      float: right;
+      font-family: "Myriad Pro", "DroidSansRegular", "Arial";
+      color: white;
+      font-size: 18px;
+      margin-top: 15px; }
+  #headerDesktop #headerBottom {
+    width: 90%;
+    margin: 15px auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: #ff7e2f;
+    padding: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 4px solid #449143; }
+  #headerDesktop #mainNavHolder {
     width: 100%;
     margin: auto;
     max-width: 1366px;
     position: relative;
     left: -10px; }
-  #headerBottom ul {
+  #headerDesktop ul {
     list-style: none;
     display: inline; }
-    #headerBottom ul li {
+    #headerDesktop ul li {
       list-style: none;
       display: inline;
       color: white;
       padding: 10px;
       font-size: 18px; }
-    #headerBottom ul li:hover {
-      background-color: #333333; }
-    #headerBottom ul li:first-of-type {
+    #headerDesktop ul li:hover {
+      background-color: #449143;
+      cursor: pointer; }
+    #headerDesktop ul li:first-of-type {
       border-left: none; }
-  #headerBottom .subnav {
-    display: none; }
+
+#manageFinancesSubNav {
+  width: 250px;
+  background-color: #449143;
+  margin-top: 0;
+  position: absolute;
+  top: -40px;
+  opacity: 0;
+  z-index: -1110;
+  -webkit-box-shadow: 0 5px 6px -4px #888888;
+  -moz-box-shadow: 0 5px 6px -4px #888888;
+  box-shadow: 0 5px 6px -4px #888888; }
+  #manageFinancesSubNav li {
+    float: left;
+    clear: left;
+    padding: 10px;
+    width: 230px;
+    border-bottom: 1px solid #f2f2f2; }
+  #manageFinancesSubNav li:last-of-type {
+    border: 0px; }
+  #manageFinancesSubNav li:hover {
+    background-color: #53b352; }
+
+#headerMobile {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 96%;
+  background-color: #333333;
+  -webkit-box-shadow: 0 5px 6px -4px #888888;
+  -moz-box-shadow: 0 5px 6px -4px #888888;
+  box-shadow: 0 5px 6px -4px #888888;
+  color: white;
+  padding: 2%;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  display: none; }
+  #headerMobile #hamburger {
+    float: right;
+    width: 75px;
+    height: 75px;
+    background-color: white; }
+  #headerMobile #hamburger:hover {
+    cursor: pointer; }
+  #headerMobile #textContainer {
+    overflow: hidden; }
+  #headerMobile h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 28px; }
+  #headerMobile h4 {
+    float: left;
+    clear: left;
+    margin-top: 10px; }
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  opacity: 1;
+  z-index: 10000000;
+  top: 125px;
+  width: 250px;
+  background-color: white;
+  height: 100%;
+  right: -250px; }
+  .mobileMenu li {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px;
+    width: 215px;
+    border-bottom: 1px solid #333333;
+    padding-left: 25px; }
+  .mobileMenu li:hover {
+    background-color: #f2f2f2;
+    cursor: pointer; }
+
+#mobileLevel2 {
+  right: -500px; }
 
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
+  #headerDesktop {
+    display: none; }
+
+  #headerMobile, .mobileMenu {
+    display: block; }
+
   .popup {
     width: 80%;
     padding: 5%;
@@ -524,3 +609,19 @@ h1 {
       clear: both;
       padding: 12.5px;
       font-size: .85em; }
+
+@media (max-width: 768px) {
+  #statsContainer {
+    width: 92%; }
+
+  #transactionContainer {
+    width: 92%;
+    float: left; }
+
+  .infoTile {
+    width: 100%; }
+
+  .stockTile h3 {
+    font-size: 60px !important; }
+  .stockTile h5 {
+    font-size: 32px; } }

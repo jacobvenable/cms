@@ -384,5 +384,31 @@ h1{
 		}
 	}
 }
+@media (max-width: 768px){
+
+    #statsContainer{
+    	width:92%;
+    }
+
+    #transactionContainer{
+    	width:92%;
+    	float:left;
+    }
+
+    .infoTile{
+    	width:100%;
+    }
+
+    .stockTile{
+    	h3{
+    		font-size: 60px !important;
+    	}
+
+    	h5{
+    		font-size: 32px;
+    	}
+    }
+    
+}
 
 

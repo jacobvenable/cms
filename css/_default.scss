@@ -38,6 +38,7 @@ q {
 a:link, a:visited, a:focus {
   
   text-decoration: none;
+  color: inherit;
 }
  
 table {
@@ -268,93 +269,212 @@ button:hover , input[type="submit"]:hover{
   z-index: 1;
   top:0;
   left:0;
+
 }
 
 
-#header{
+//THIS IS THE HEADER STYLE
+
+#headerDesktop{
+  
   width: 100%;
-  background-color: $darkGreen;
+  background-color: $darkGrey;
   padding: 15px 0px 0px 0px;
   @include box-shadow-bottom(-4px);
   position: fixed;
   text-transform: uppercase;
   z-index: 100000000000000000000000;
   top: 0;
-}
-
-#headerTop{
-  width: 90%;
-  max-width: 1366px;
-  margin: auto auto;
-  overflow: hidden;
 
 
-  h1{
-    font-size: 36px;
-    float:left;
-    font-family: DroidSansBold;
-    color: white;
-    margin: 0 !important;
-  }
-
-  h4{
-    float:right;
-    font-family: $font-stack;
-    color: white;
-    font-size: 18px;
-    margin-top: 15px;
-  }
-}
-
-#headerBottom{
-  width: 90%;
-  margin: 15px auto;
-  margin-bottom: 0px;
-  background-color: $orange;
-  padding: 5%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  #mainNavHolder{
-    width: 100%;
-    margin: auto;
+  #headerTop{
+    width: 90%;
     max-width: 1366px;
-    position: relative;
-    left: -10px;
+    margin: auto auto;
+    overflow: hidden;
+
+
+    h1{
+      font-size: 36px;
+      float:left;
+      font-family: DroidSansBold;
+      color: white;
+      margin: 0 !important;
+    }
+
+    h4{
+      float:right;
+      font-family: $font-stack;
+      color: white;
+      font-size: 18px;
+      margin-top: 15px;
+    }
   }
 
-  ul{
-    list-style: none;;
-    display:inline;
+  #headerBottom{
+    width: 90%;
+    margin: 15px auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: $orange;
+    padding: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 4px solid $darkGreen;
+}
+    #mainNavHolder{
+      width: 100%;
+      margin: auto;
+      max-width: 1366px;
+      position: relative;
+      left: -10px;
+    }
 
-    li{
-    list-style: none;
-    display:inline;
-    color: white;
-    padding: 10px;
+    ul{
+      list-style: none;;
+      display:inline;
+
+      li{
+      list-style: none;
+      display:inline;
+      color: white;
+      padding: 10px;
+      font-size: 18px;
+      }
+
+      li:hover{
+        background-color: $darkGreen;
+        cursor: pointer;
+      }
+
+      li:first-of-type{
+       
+        border-left: none;
+      }
+    }
+}
+    
+    
+
+    #manageFinancesSubNav{
+      width: 250px;
+      background-color: $darkGreen;
+      margin-top: 0;
+      position: absolute;
+      top: -40px;
+      opacity: 0;
+      z-index: -1110;
+       @include box-shadow-bottom(-4px);
+
+      li{
+        float:left;
+        clear:left;
+        padding: 10px;
+        width: 230px;
+        border-bottom: 1px solid $lightGrey;
+      }
+
+      li:last-of-type{
+        border: 0px;
+      }
+
+      li:hover{
+        background-color: $green;
+      }
+    }
+  
+
+//mobileHeader
+
+#headerMobile{
+  
+  position:fixed;
+  z-index: 10;
+  top:0;
+  left:0;
+  width:96%;
+  background-color: $darkGrey;
+  @include box-shadow-bottom(-4px);
+  color: white;
+  padding: 2%;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  display: none;
+      #hamburger{
+          float:right;
+          width: 75px;
+          height: 75px;
+          background-color: white;
+      }
+
+      #hamburger:hover{
+        cursor: pointer;
+      }
+
+        #textContainer{
+          overflow: hidden;
+        }
+
+      h1{
+        margin: 0;
+        padding: 0;
+        font-size: 28px;
+        
+      }
+
+      h4{
+        float:left;
+        clear:left;
+        
+        margin-top: 10px;
+      }
+} 
+
+.mobileMenu{
+  display: none;
+  position:fixed;
+  opacity: 1;
+  z-index: 10000000;
+  top: 125px;
+  width: 250px;
+  background-color: white;
+  height: 100%;
+  right: -250px;
+
+  li{
     font-size: 18px;
-    }
-
-    li:hover{
-      background-color: $darkGrey;
-    }
-
-    li:first-of-type{
-     
-      border-left: none;
-    }
+    text-transform: uppercase;
+    padding: 10px;
+    width: 215px;
+     border-bottom: 1px solid $darkGrey;
+     padding-left:25px;
   }
 
   
-  .subnav{
-    display: none;
+
+  li:hover{
+    background-color: $lightGrey;
+    cursor: pointer;
   }
 }
+
+#mobileLevel2{
+  right:-500px;
+}
+
 
 
 /*MEDIA QUERIES*/
 
 @media (max-width: 768px){
+
+    #headerDesktop{
+      display: none;
+    }
+
+    #headerMobile , .mobileMenu{
+      display: block;
+    } 
 
     .popup{
       width: 80%;
@@ -370,6 +490,8 @@ button:hover , input[type="submit"]:hover{
     input , button , h3{
       margin-left: 3%;
     }
+
+
 
 
     }

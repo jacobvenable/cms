@@ -120,8 +120,14 @@
 						
 						baseWidth = $('#stocksContainer').width();
 						
-
-						$('.infoTile').width(baseWidth*.24-4);
+						if($(window).width() > 768){
+							$('.infoTile').width(baseWidth*.24-4);
+						}
+						else
+						{
+							$('.infoTile').width(baseWidth*.92-4);
+						}
+						
 						$('.infoTile').css('padding',baseWidth*.04);
 						$('.infoTile').css('margin-right',baseWidth*.02);
 						$('.controls').width($('.stockTile').outerWidth()*.25);
@@ -135,9 +141,17 @@
 						$('#nextEvent').height($('.eventTile').outerHeight());
 						$('#nextEvent').css('left',"-"+$('.controls').width()+"px");
 
+						if($(window).width() > 768){
+							stageDisplay = 3;
+						}
+						else
+						{
+							stageDisplay = 1;
+						}
 						
-						stageDisplay = 3;
 						stageSize = 1;
+
+
 						stageLength = ($('.stockTile').outerWidth()+$('#stocksContainer').width()*.02);
 							
 						stockMaxStages = ($('.stockTile').length) - stageDisplay;
@@ -215,13 +229,116 @@
 
 						});
 
+						//THIS IS THE CODE FOR THE HEADERS
+
+						$('#manageFinances').mouseenter(function(){
+							
+							var temp = ($('#manageFinances').position());
+							$('#manageFinancesSubNav').stop();
+							$('#manageFinancesSubNav').css('left',temp.left);
+							
+
+							$('#manageFinancesSubNav').animate({
+									top: '28px',
+									opacity: 1
+							},300,'easeOutCirc');
+
+						});
+
+						$('#manageFinances').mouseleave(function(){
+							
+							$('#manageFinancesSubNav').stop();
+							$('#manageFinancesSubNav').animate({
+									top: '-30px',
+									opacity: 0
+							},300,'easeInCirc');
+
+						});
+						var isShow = false;
+						var tier2show = false;
+						$('#blanket').hide();
+						
+
+						
+						$('#hamburger').click(function(){
+							if(isShow)
+							{
+
+								$('#blanket').fadeOut(250);
+								$('.mobileMenu').animate({
+									right: "-=250",
+									opacity: 0
+								},300,'easeInCirc');
+
+								
+								isShow = false;
+								
+							}
+							else{
+								$('#blanket').fadeIn(250);
+								$('.mobileMenu').animate({
+									right: "+=250",
+									opacity: 1
+								},300,'easeOutCirc');
+								isShow = true;
+							}
+						});
+
+						$('#manageFinancesMobile').click(function(){
+							
+							if(!tier2show)
+							{
+								
+								$('#mobileLevel1').animate({
+									right: "-=250",
+									opacity: 1,
+
+								},300,'easeInCirc');
+								
+
+								$('#mobileLevel2').delay(400).animate({
+									right: "+=250",
+									opacity: 1,
+
+								},300,'easeOutCirc');
+								tier2show = true;
+								
+							}
+							
+						});
+
+						$('#level2back').click(function(){
+							
+							if(tier2show)
+							{
+								
+								$('#mobileLevel2').animate({
+									right: "-=250",
+									opacity: 1,
+
+								},300,'easeInCirc');
+								
+
+								$('#mobileLevel1').delay(400).animate({
+									right: "+=250",
+									opacity: 1,
+
+								},300,'easeOutCirc');
+								tier2show = false;
+								
+							}
+							
+						}); 
+
+						//END HEADER CODE */
+
 						$('#prevStock').click(function(){
 
 							if(stockCurrentStage != 0)
 							{
 								$('#toScrollStocks').animate({
 									left : "+="+stageLength+"px"	
-								},300,'easeOutBack');
+								},200,'easeOutBack');
 								stockCurrentStage--;
 							}
 
@@ -459,6 +576,6 @@
 			</form>
 		</div>
 	</div>
-
+<div id="blanket"></div>
 </body>
 </html>
